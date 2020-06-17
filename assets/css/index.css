@@ -1,0 +1,126 @@
+/* basic styling for body */
+body
+{
+    background-image: url('../bg.jpg');
+    background-size: cover;
+}
+
+/* styling for adding item section */
+#main
+{
+    color: white;
+    width: 60vw;
+    height: 20vh;
+    margin-left: 20vw;
+    padding: 20px;
+}
+
+/* styling for header */
+h1
+{
+    color: white;
+    text-align: center;
+}
+
+/* styling for the from elements */
+input
+{
+    border-radius: 4px;
+    margin: 10px;
+    height: 30px;
+}
+
+select,button
+{
+    margin: 10px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+button
+{
+    width: 100px;
+}
+
+/* styling for each item of the list */
+#task
+{
+    display: inline-flex;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    border-radius: 50px;
+    vertical-align: 3rem;
+    font-weight: 600;
+    background-image: url('../sticky.png');
+    background-size: cover;
+    font-family: cursive;
+}
+
+/* styling for the entire list */
+ul
+{
+    padding: 0px;
+    margin-left: -50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* styles specefic to the list items */
+li
+{
+    list-style-type: none;
+    margin-left: 10vw;
+    /* border: 1px solid red; */
+}
+
+up
+{
+    position: relative;
+    bottom: 10px;
+}
+
+/* styling for details inside the item */
+#category
+{
+    display: inline;
+    position: relative;
+    left: 50px;
+}
+
+#go
+{
+    position: relative;
+    left: 63px;
+}
+
+.check
+{
+    position: relative;
+    left: 15px;
+}
+
+/* styling for bottom of items */
+#first
+{
+    width: 100%;
+    position: relative;
+    left: 40px;
+    top: 30px;
+}
+
+#second
+{
+    position: relative;
+    left: 60px;
+    color: white;
+}
+
+/* styling for the delete icon */
+#delete
+{
+    position: relative;
+    left: 200px;
+    top: 30px;
+}

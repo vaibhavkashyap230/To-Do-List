@@ -1,0 +1,73 @@
+<!-- view for home page -->
+<html>
+    <head>
+        <!-- Adding title -->
+        <title>
+            To-Do List
+        </title>
+        <!-- adding icons and css -->
+        <link rel="stylesheet" type="text/css" href="./css/index.css">
+        <link rel="shortcut icon" type="image/png" href="../icon.png">
+    </head>
+    <body>
+        <h1>
+            To-Do List
+        </h1><div id="app">
+            <!-- section to add new items -->
+        <div id="main">
+            <form action="/add" method="POST">
+                <input type="text" name="name" autocomplete="off" placeholder="Task to be completed" required style="width: 250px;">
+                <select name="category" required>
+                    <option value="" disabled selected>Choose a Category</option>
+                    <option value="General">General</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="date" name="date" id="todo-date">
+                <button type="submit">Submit</button>
+            </form>
+            <!-- section to select items from a category -->
+            <div>
+                <up>Select category :</up>
+                <form action="/" method="POST" id="category">
+                    <input type="radio" id="All" name="category" value="All" <% if(category==undefined || category=='All') { %> checked <% }%> ><up>All</up>
+                    <input type="radio" name="category" value="General" <% if(category=='General') { %> checked <% }%> ><up>General</up>
+                    <input type="radio" name="category" value="Personal" <% if(category=='Personal') { %> checked <% }%> ><up>Personal</up>
+                    <input type="radio" name="category" value="Work" <% if(category=='Work') { %> checked <% }%> ><up>Work</up>
+                    <input type="radio" name="category" value="Other" <% if(category=='Other') { %> checked <% }%> ><up>Other</up>
+                    <up><button type="submit" id="go">Go!</button></up>
+                </form>
+            </div>
+        </div>
+        <!-- display list of items -->
+        <div>
+            <ul>
+                <% for(let i of a) { %>
+                    <li>
+                        <!-- display category, status and name -->
+                        <a href="/update/s/<%= i._id %>">
+                            <% if(i.status==true) { %>
+                                <img class="check" src="../correct.png" width="32px">
+                            <% } %>
+                            <% if(i.status==false) { %>
+                                <img class="check" src="../checkbox.png" width="32px">
+                            <% } %>
+                        </a>
+                        <!-- to mark if task is done or to delete it -->
+                        <div id="task">
+                                <div id="first">
+                                    <p id="second"><%= i.category %></p>
+                                    <p> Task: <%= i.name %></p>
+                                    <p> Due Date: <%= i.date %></p>
+                                </div>
+                            <div>
+                                <a href="/update/d/<%= i._id %>" id="delete"><img src="../delete.png" width="36px"></a>
+                            </div>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
+        </div></div>
+    </body>
+</html>
